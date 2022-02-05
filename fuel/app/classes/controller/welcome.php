@@ -29,6 +29,8 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
+		// TODO debug
+		phpinfo();
 		return Response::forge(View::forge('welcome/index'));
 	}
 
