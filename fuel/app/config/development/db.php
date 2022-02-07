@@ -20,11 +20,19 @@
  */
 
 return array(
-	'default' => array(
-		'connection' => array(
-			'dsn'      => 'mysql:host=localhost;dbname=fuel_dev',
-			'username' => 'root',
-			'password' => 'root',
-		),
-	),
+    'production' => array(
+        'type'           => 'pdo',
+        'connection'     => array(
+            'dsn'            => 'pgsql:host=localhost;dbname=app_dev;port:15432',
+            'username'       => 'app_dev',
+            'password'       => 'pass',
+            'persistent'     => false,
+            'compress'       => false,
+        ),
+        'identifier'   => '"',
+        'table_prefix'   => '',
+        'charset'        => 'utf8',
+        'enable_cache'   => true,
+        'profiling'      => false,
+    ),
 );
