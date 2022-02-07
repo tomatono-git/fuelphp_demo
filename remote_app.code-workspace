@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+	],
+	"settings": {
+		// "php.validate.executablePath": "",
+		// "markdown.preview.breaks": true,
+		// "[markdown]": {
+		// 	"editor.insertSpaces": true,
+		// 	"editor.tabSize": 2,
+		// }
+	}
+}

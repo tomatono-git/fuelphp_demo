@@ -10,7 +10,8 @@
             "request": "launch",
             "port": 9003,
             "pathMappings": {
-                "/var/www/html": "${workspaceRoot}"
+                "/var/www/html": "${workspaceRoot}",
+                // "/var/www/html": "G:/pg/git/fuelphp/fuelphp_demo",
             }
         },
         {
