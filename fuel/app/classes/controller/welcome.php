@@ -31,6 +31,8 @@ class Controller_Welcome extends Controller
 	{
 		// TODO debug
 		phpinfo();
+		Auth::create_user('test_user', 'pass', 'test@example.com');
+
 		return Response::forge(View::forge('welcome/index'));
 	}
 

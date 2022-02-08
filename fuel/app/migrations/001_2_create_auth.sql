@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS public.users
     last_login varchar(25) NOT NULL,
     login_hash varchar(255) NOT NULL,
     profile_fields text NOT NULL,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at int NOT NULL DEFAULT 0,
+    updated_at int NOT NULL DEFAULT 0,
     CONSTRAINT users_pkey PRIMARY KEY (id)
 )
 ;
@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS public.users_groups
     id serial,
     name varchar(255) NOT NULL,
     user_id int NOT NULL DEFAULT 0,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at int NOT NULL DEFAULT 0,
+    updated_at int NOT NULL DEFAULT 0,
     CONSTRAINT users_groups_pkey PRIMARY KEY (id)
 )
 ;
@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS public.users_roles
     name varchar(255) NOT NULL,
     filter role_filter DEFAULT '',
     user_id int NOT NULL DEFAULT 0,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at int NOT NULL DEFAULT 0,
+    updated_at int NOT NULL DEFAULT 0,
     CONSTRAINT users_roles_pkey PRIMARY KEY (id)
 )
 ;
@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS public.users_permissions
     permission varchar(25) NOT NULL,
     description varchar(255) NOT NULL,
     user_id int NOT NULL DEFAULT 0,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at int NOT NULL DEFAULT 0,
+    updated_at int NOT NULL DEFAULT 0,
     CONSTRAINT users_permissions_pkey PRIMARY KEY (id)
 )
 ;
@@ -89,8 +89,8 @@ CREATE TABLE IF NOT EXISTS public.users_providers
     expires varchar(255) NULL,
     refresh_token varchar(255) NULL,
     user_id int NOT NULL DEFAULT 0,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    created_at int NOT NULL DEFAULT 0,
+    updated_at int NOT NULL DEFAULT 0,
     CONSTRAINT users_providers_pkey PRIMARY KEY (id)
 )
 ;
