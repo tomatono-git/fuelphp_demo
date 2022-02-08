@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "migration" (
+CREATE TABLE IF NOT EXISTS migration (
 "id" serial,
 "type" varchar(25) NOT NULL,
 "name" varchar(50) NOT NULL,

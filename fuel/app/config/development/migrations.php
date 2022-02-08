@@ -6,6 +6,8 @@ return array(
     array(
       'default' => 
       array(
+        0 => '001_initialize_all',
+        1 => '002_add_users_tel',
       ),
     ),
     'module' => 
