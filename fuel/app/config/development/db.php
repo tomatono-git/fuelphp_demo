@@ -20,10 +20,11 @@
  */
 
 return array(
-    'production' => array(
+    'default' => array(
         'type'           => 'pdo',
         'connection'     => array(
-            'dsn'            => 'pgsql:host=localhost;dbname=app_dev;port:15432',
+            'dsn'            => 'pgsql:host=fuel_db;dbname=app_dev;port=5432',
+            // 'dsn'            => 'pgsql:host=localhost;dbname=app_dev;port:15432',
             'username'       => 'app_dev',
             'password'       => 'pass',
             'persistent'     => false,
@@ -34,5 +35,6 @@ return array(
         'charset'        => 'utf8',
         'enable_cache'   => true,
         'profiling'      => false,
+        'identifier' => "\"", /* for PostgreSQL */
     ),
 );
