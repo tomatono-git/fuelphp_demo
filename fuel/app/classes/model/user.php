@@ -17,11 +17,11 @@ class Model_User extends Model
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
 			'events' => array('before_insert'),
-			'mysql_timestamp' => false,
+			'mysql_timestamp' => true,
 		),
 		'Orm\Observer_UpdatedAt' => array(
 			'events' => array('before_save'),
-			'mysql_timestamp' => false,
+			'mysql_timestamp' => true,
 		),
 	);
 
