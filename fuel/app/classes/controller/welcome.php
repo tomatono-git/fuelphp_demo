@@ -29,11 +29,21 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		// TODO debug
-		phpinfo();
-		Auth::create_user('test_user', 'pass', 'test@example.com');
-
 		return Response::forge(View::forge('welcome/index'));
+	}
+
+	/**
+	 * The basic welcome message
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_phpinfo()
+	{
+		// // TODO debug
+		// phpinfo();
+		// Auth::create_user('test_user', 'pass', 'test@example.com');
+		return Response::forge(View::forge('welcome/phpinfo'));
 	}
 
 	/**

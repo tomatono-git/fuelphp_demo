@@ -1,5 +1,5 @@
 <?php
-class Controller_Users extends Controller_Template
+class Controller_Users extends Controller_Authenticated
 {
 
 	public function action_index()
@@ -34,11 +34,13 @@ class Controller_Users extends Controller_Template
 			if ($val->run())
 			{
 				$user = Model_User::forge(array(
-					'name' => Input::post('name'),
-					'email' => Input::post('email'),
+					'username' => Input::post('username'),
 					'password' => Input::post('password'),
-					'created_user' => Input::post('created_user'),
-					'updated_user' => Input::post('updated_user'),
+					'group' => Input::post('group'),
+					'email' => Input::post('email'),
+					'last_login' => Input::post('last_login'),
+					'login_hash' => Input::post('login_hash'),
+					'profile_fields' => Input::post('profile_fields'),
 				));
 
 				if ($user and $user->save())
@@ -78,11 +80,13 @@ class Controller_Users extends Controller_Template
 
 		if ($val->run())
 		{
-			$user->name = Input::post('name');
-			$user->email = Input::post('email');
+			$user->username = Input::post('username');
 			$user->password = Input::post('password');
-			$user->created_user = Input::post('created_user');
-			$user->updated_user = Input::post('updated_user');
+			$user->group = Input::post('group');
+			$user->email = Input::post('email');
+			$user->last_login = Input::post('last_login');
+			$user->login_hash = Input::post('login_hash');
+			$user->profile_fields = Input::post('profile_fields');
 
 			if ($user->save())
 			{
@@ -101,11 +105,13 @@ class Controller_Users extends Controller_Template
 		{
 			if (Input::method() == 'POST')
 			{
-				$user->name = $val->validated('name');
-				$user->email = $val->validated('email');
+				$user->username = $val->validated('username');
 				$user->password = $val->validated('password');
-				$user->created_user = $val->validated('created_user');
-				$user->updated_user = $val->validated('updated_user');
+				$user->group = $val->validated('group');
+				$user->email = $val->validated('email');
+				$user->last_login = $val->validated('last_login');
+				$user->login_hash = $val->validated('login_hash');
+				$user->profile_fields = $val->validated('profile_fields');
 
 				Session::set_flash('error', $val->error());
 			}

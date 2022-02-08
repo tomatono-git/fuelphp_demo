@@ -10,6 +10,13 @@
 </head>
 <body>
 	<div class="container">
+
+	<div class="col-md-12">
+		<?php echo Html::anchor('welcome/index', 'Welcome'); ?> |
+		<?php echo Html::anchor('home/index', 'Home'); ?> |
+		<?php echo Html::anchor('auth/logout', 'ログアウト'); ?> |
+	</div>
+
 		<div class="col-md-12">
 			<h1><?php echo $title; ?></h1>
 			<hr>

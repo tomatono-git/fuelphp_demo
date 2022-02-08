@@ -4,22 +4,26 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
+			<th>Username</th>
 			<th>Password</th>
-			<th>Created user</th>
-			<th>Updated user</th>
+			<th>Group</th>
+			<th>Email</th>
+			<th>Last login</th>
+			<th>Login hash</th>
+			<th>Profile fields</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
 <?php foreach ($users as $item): ?>		<tr>
 
-			<td><?php echo $item->name; ?></td>
-			<td><?php echo $item->email; ?></td>
+			<td><?php echo $item->username; ?></td>
 			<td><?php echo $item->password; ?></td>
-			<td><?php echo $item->created_user; ?></td>
-			<td><?php echo $item->updated_user; ?></td>
+			<td><?php echo $item->group; ?></td>
+			<td><?php echo $item->email; ?></td>
+			<td><?php echo $item->last_login; ?></td>
+			<td><?php echo $item->login_hash; ?></td>
+			<td><?php echo $item->profile_fields; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">

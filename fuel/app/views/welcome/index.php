@@ -36,6 +36,9 @@
 		</div>
 	</header>
 	<div class="container">
+		<div>
+			<?php echo Html::anchor('auth/login', 'ログイン'); ?>
+		</div>
 		<div class="jumbotron">
 			<h1>Welcome!</h1>
 			<p>You have successfully installed the FuelPHP Framework.</p>
