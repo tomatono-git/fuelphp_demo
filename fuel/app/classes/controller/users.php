@@ -14,15 +14,23 @@ class Controller_Users extends Controller_Authenticated
 	{
 		is_null($id) and Response::redirect('users');
 
-		if ( ! $data['user'] = Model_User::find($id))
+		$user = Model_User::find($id);
+		// if ( ! $data['user'] = Model_User::find($id))
+		if (!$user)
 		{
 			Session::set_flash('error', 'Could not find user #'.$id);
 			Response::redirect('users');
 		}
 
+		$data['user'] = $user;
 		$this->template->title = "User";
 		$this->template->content = View::forge('users/view', $data);
 
+		// $viewName = 'users/view';
+		// $view = View_Twig::forge($viewName);
+		// $presenter = Presenter::Forge('users/view', [
+		// 	'user', $user
+		// ]);
 	}
 
 	public function action_create()

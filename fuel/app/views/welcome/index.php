@@ -37,7 +37,9 @@
 	</header>
 	<div class="container">
 		<div>
-			<?php echo Html::anchor('auth/login', 'ログイン'); ?>
+			<?php echo Html::anchor('auth/login', 'ログイン'); ?> |
+			<?php echo Html::anchor('welcome/phpinfo', 'phpinfo'); ?> |
+			<?php echo Html::anchor('welcome/add_test_user', 'テストユーザー追加'); ?> |
 		</div>
 		<div class="jumbotron">
 			<h1>Welcome!</h1>
