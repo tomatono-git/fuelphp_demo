@@ -14,32 +14,6 @@ use Auth\Auth;
  */
 class Controller_Auth extends Controller_Template_Base
 {
-    // public function before()
-    // {
-    //     $response = parent::before();
-
-    //     $active = Request::active();
-    //     if ($active->controller !== 'Controller_Welcome') {
-    //         $noauth_list = ['login', 'logout'];
-    //         if ( !in_array(Request::active()->action, $noauth_list, true) )
-    //         {
-    //             if (!Auth::check())
-    //             {
-    //                 Session::set_flash('error', 'You must be logged in.');
-    //                 Response::redirect('auth/login');
-    //                 return;
-    //             }
-    //         }    
-    //     }
-    //     // if ( in_array(Request::active()->action, $noauth_list, true) && !Auth::check())
-    //     // {
-    //     //     Session::set_flash('error', 'You must be logged in.');
-    //     //     Response::redirect('auth/login');
-    //     // }
-
-    //     return $response;
-    // }
-
 	/**
 	 * The basic welcome message
 	 *
@@ -48,11 +22,6 @@ class Controller_Auth extends Controller_Template_Base
 	 */
 	public function action_login()
 	{
-		// $data["subnav"] = array('login'=> 'active' );
-		// $this->template->title = 'ログイン';
-
-        $data = array();
-
         if (Input::post())
         {
             if (Auth::login(Input::post('email'), Input::post('password')))
@@ -61,52 +30,14 @@ class Controller_Auth extends Controller_Template_Base
             }
             else
             {
-                $data['username'] = Input::post('username');
+                $presenter = $this->forge('auth/login');
+                $presenter->view();
                 Session::set_flash('error', 'Wrong username/password combo. Try again');
             }
         } else {
-            $this->template->title = 'ログイン';
-            $this->template->content = View::forge('auth/login', $data);
+            $presenter = $this->forge('auth/login');
+            $presenter->view();
         }
-
-        // $this->template->title = 'Auth &raquo; Login';
-
-        // $this->template->content = View::forge('home/index', $data);
-
-        // // すでにログイン済み？
-        // if (\Auth::check())
-        // {
-        //     \Messages::info(__('login.already-logged-in'));
-        //     \Response::redirect_back('dashboard');
-        // }
-
-        // if (\Input::method() == 'POST')
-        // {
-        //     // 資格情報のチェック
-        //     if (\Auth::instance()->login(\Input::param('username'), \Input::param('password')))
-        //     {
-        //         if (\Input::param('remember', false))
-        //         {
-        //             // remember-me クッキーを作成
-        //             \Auth::remember_me();
-        //         }
-        //         else
-        //         {
-        //             // 存在する場合、 remember-me クッキーを削除
-        //             \Auth::dont_remember_me();
-        //         }
-
-        //         \Response::redirect_back('dashboard');
-        //     }
-        //     else
-        //     {
-        //         // ログイン失敗、エラーメッセージを表示
-        //         \Messages::error(__('login.failure'));
-        //     }
-        // }
-
-        // // ログインページを表示
-        // return \View::forge('auth/index');
     }
 
     public function action_logout()
@@ -114,37 +45,47 @@ class Controller_Auth extends Controller_Template_Base
         if ( Auth::logout() )
         {
             Response::redirect('auth/login');
-            // Response::redirect('home/index');
         }
         else
         {
             Response::redirect('welcome/index');
-            // Response::redirect('auth/login');
-            // Session::set_flash('error', 'Logout failed.');
-            // Response::redirect_back('welcome/index', 'refresh');
         }
-
-        // $data["subnav"] = array('logout'=> 'active' );
-		// $this->template->title = 'Auth &raquo; Logout';
-		// $this->template->content = View::forge('auth/logout', $data);
-
-        // // remember-me クッキーを削除
-        // \Auth::dont_remember_me();
-    
-        // // ログアウト
-        // \Auth::logout();
-    
-        // // ログアウトの成功をユーザーに知らせる
-        // \Messages::success(__('login.logged-out'));
-    
-        // \Response::redirect_back();
     }
 
 	public function action_register()
 	{
-		$data["subnav"] = array('register'=> 'active' );
-		$this->template->title = 'Auth &raquo; Register';
-		$this->template->content = View::forge('auth/register', $data);
+		if (Input::method() == 'POST')
+		{
+			// $validation = Validation_Auth_Register::validate();
+			$validation = Model_User::validate('sign_up');
+			if ($validation->run())
+			{
+                $username = Input::post('username');
+                $password = Input::post('password');
+                $email = Input::post('email');
+                // テストユーザーを追加
+                $success = Auth::create_user($username, $password, $email);
+                if($success)
+                {
+                    // 登録成功
+                    Session::set_flash('success', 'Added user #'.$username.'.');
+                    Response::redirect('users');
+                }
+                else
+                {
+                    // 登録失敗
+                    Session::set_flash('error', 'Could not save user.');
+                }
+			}
+			else
+			{
+                // 入力エラー
+				Session::set_flash('error', $validation->error());
+			}
+		}
+
+        $presenter = $this->forge('auth/register');
+		$presenter->view();
 	}
 
     public function action_lostpassword()

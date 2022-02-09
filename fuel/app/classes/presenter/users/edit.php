@@ -1,9 +1,11 @@
 <?php
 
-class Presenter_Users_edit extends Presenter
+class Presenter_Users_edit extends Presenter_Template
 {
 	public function view()
 	{
-		$this->content = "Users &raquo; edit";
+        parent::view();
+
+        $this->set_title('User - edit');
 	}
 }

@@ -3,6 +3,7 @@
 use Fuel\Core\Response;
 use Fuel\Core\View;
 use Fuel\Core\Controller;
+use Auth\Auth;
 
 /**
  * Fuel is a fast, lightweight, community driven PHP 5.4+ framework.
@@ -49,6 +50,33 @@ class Controller_Welcome extends Controller
 		// phpinfo();
 		// Auth::create_user('test_user', 'pass', 'test@example.com');
 		return Response::forge(View::forge('welcome/phpinfo'));
+	}
+
+	/**
+	 * テストユーザーを追加
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_add_test_user()
+	{
+		// テストユーザーを取得
+		$user = Model_User::find('first', [
+			'where' => [
+				['email', 'test@example.com']
+			],
+		]);
+
+		if ($user)
+		{
+			// ログイン画面
+			Response::redirect('auth/login');
+		}
+		else
+		{
+			// テストユーザーを追加
+			Auth::create_user('test_user', 'pass', 'test@example.com');
+		}
 	}
 
 	/**

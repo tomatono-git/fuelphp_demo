@@ -7,10 +7,14 @@ class Presenter_Users_view extends Presenter_Template
 {
 	public function view()
 	{
-		// $this->content = "Users &raquo; view";
+        parent::view();
 
-		$this->template->title = "User - view";
-		$this->template->content = $this->get_view();
-		// $this->template->content = View::forge('users/view', $data);
+        $this->set_title('User - view');
+
+		// // $this->content = "Users &raquo; view";
+
+		// $this->template->title = "User - view";
+		// $this->template->content = $this->get_view();
+		// // $this->template->content = View::forge('users/view', $data);
 	}
 }

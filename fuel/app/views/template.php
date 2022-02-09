@@ -19,7 +19,9 @@
 	<div class="col-md-12">
 		<?php echo Html::anchor('welcome/index', 'Welcome'); ?> |
 		<?php echo Html::anchor('home/index', 'Home'); ?> |
+		<?php echo Html::anchor('auth/register', 'ユーザー登録'); ?> |
 		<?php echo Html::anchor('users/index', 'User'); ?> |
+		<?php echo Html::anchor('auth/login', 'ログイン'); ?> |
 		<?php echo Html::anchor('auth/logout', 'ログアウト'); ?> |
 	</div>
 

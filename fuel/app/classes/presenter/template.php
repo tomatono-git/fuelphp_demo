@@ -1,5 +1,6 @@
 <?php
 
+use Fuel\Core\View;
 abstract class Presenter_Template extends Fuel\Core\Presenter
 {
     /**
@@ -22,8 +23,18 @@ abstract class Presenter_Template extends Fuel\Core\Presenter
      *
      * @param Fuel\Core\View $template
      */
-    public function set_template($template)
+    public function set_template(View $template)
     {
         $this->template = $template;
     }
+
+    public function set_title(string $title)
+    {
+		$this->template->title = $title;
+    }
+
+    public function view()
+	{
+		$this->template->content = $this->get_view();
+	}
 }

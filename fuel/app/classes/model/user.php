@@ -1,5 +1,7 @@
 <?php
+
 use Orm\Model;
+use Fuel\Core\Validation;
 
 class Model_User extends Model
 {
@@ -30,13 +32,24 @@ class Model_User extends Model
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('username', 'Username', 'required|max_length[50]');
-		$val->add_field('password', 'Password', 'required|max_length[255]');
-		$val->add_field('group', 'Group', 'required|valid_string[numeric]');
-		$val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
-		$val->add_field('last_login', 'Last Login', 'required|max_length[25]');
-		$val->add_field('login_hash', 'Login Hash', 'required|max_length[255]');
-		$val->add_field('profile_fields', 'Profile Fields', 'required');
+		switch ($factory) {
+			case 'sign_up':
+				$val = Validation::forge('auth_register');
+				$val->add_field('username', 'Username', 'required|max_length[50]');
+				$val->add_field('password', 'Password', 'required|max_length[255]');
+				$val->add_field('email', 'Email', 'required|valid_email|max_length[255]');		
+				break;
+			
+			default:
+				$val->add_field('username', 'Username', 'required|max_length[50]');
+				$val->add_field('password', 'Password', 'required|max_length[255]');
+				$val->add_field('group', 'Group', 'required|valid_string[numeric]');
+				$val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
+				$val->add_field('last_login', 'Last Login', 'required|max_length[25]');
+				$val->add_field('login_hash', 'Login Hash', 'required|max_length[255]');
+				$val->add_field('profile_fields', 'Profile Fields', 'required');
+				break;
+		}
 
 		return $val;
 	}

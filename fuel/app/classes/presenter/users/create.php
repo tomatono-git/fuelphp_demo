@@ -1,9 +1,11 @@
 <?php
 
-class Presenter_Users_create extends Presenter
+class Presenter_Users_create extends Presenter_Template
 {
 	public function view()
 	{
-		$this->content = "Users &raquo; create";
+        parent::view();
+
+        $this->set_title('User - create');
 	}
 }

@@ -22,29 +22,16 @@ class Controller_Users extends Controller_Template_Base
 		is_null($id) and Response::redirect('users');
 
 		$user = Model_User::find($id);
-		// if ( ! $data['user'] = Model_User::find($id))
 		if (!$user)
 		{
+			// 該当データなし
 			Session::set_flash('error', 'Could not find user #'.$id);
 			Response::redirect('users');
 		}
 
-		// $data['user'] = $user;
-
-		// $presenter = Presenter_Template::forge('users/view');
-		// $presenter->set_template($this->template);
 		$presenter = $this->forge('users/view');
 		$presenter->set('user', $user);
 		$presenter->view();
-
-		// $this->template->title = "User - view";
-		// $this->template->content = View::forge('users/view', $data);
-
-		// $viewName = 'users/view';
-		// $view = View_Twig::forge($viewName);
-		// $presenter = Presenter::Forge('users/view', [
-		// 	'user', $user
-		// ]);
 	}
 
 	public function action_create()
@@ -83,8 +70,11 @@ class Controller_Users extends Controller_Template_Base
 			}
 		}
 
-		$this->template->title = "Users";
-		$this->template->content = View::forge('users/create');
+		$presenter = $this->forge('users/create');
+		$presenter->set('user', $user);
+		$presenter->view();
+		// $this->template->title = "Users";
+		// $this->template->content = View::forge('users/create');
 
 	}
 
