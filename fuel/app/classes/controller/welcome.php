@@ -1,4 +1,9 @@
 <?php
+
+use Fuel\Core\Response;
+use Fuel\Core\View;
+use Fuel\Core\Controller;
+
 /**
  * Fuel is a fast, lightweight, community driven PHP 5.4+ framework.
  *

@@ -1,4 +1,10 @@
 <?php
+
+use Fuel\Core\Response;
+use Fuel\Core\Session;
+use Fuel\Core\View;
+use Fuel\Core\Input;
+
 class Controller_Users extends Controller_Authenticated
 {
 

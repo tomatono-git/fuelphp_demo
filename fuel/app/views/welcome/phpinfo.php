@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Asset; ?>
+
 <!DOCTYPE html>
 <html>
 <head>

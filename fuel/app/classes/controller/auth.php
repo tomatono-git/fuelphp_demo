@@ -1,5 +1,11 @@
 <?php
 
+use Fuel\Core\Response;
+use Fuel\Core\Session;
+use Fuel\Core\Input;
+use Fuel\Core\View;
+use Auth\Auth;
+
 /**
  * Auth Controller.
  *

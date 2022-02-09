@@ -1,3 +1,6 @@
+<?php use Fuel\Core\Asset; ?>
+<?php use Fuel\Core\Fuel; ?>
+
 <!DOCTYPE html>
 <html>
 <head>

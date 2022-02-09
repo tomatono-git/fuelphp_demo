@@ -1,5 +1,7 @@
 <?php
 
+use Fuel\Core\View;
+
 class Controller_Home extends Controller_Authenticated
 {
 

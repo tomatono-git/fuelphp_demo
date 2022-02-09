@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Html; ?>
+
 <h2>Listing <span class='muted'>Users</span></h2>
 <br>
 <?php if ($users): ?>
