@@ -4,8 +4,9 @@ use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Fuel\Core\View;
 use Fuel\Core\Input;
+use Fuel\Core\Presenter;
 
-class Controller_Users extends Controller_Authenticated
+class Controller_Users extends Controller_Template_Base
 {
 
 	public function action_index()
@@ -28,9 +29,16 @@ class Controller_Users extends Controller_Authenticated
 			Response::redirect('users');
 		}
 
-		$data['user'] = $user;
-		$this->template->title = "User";
-		$this->template->content = View::forge('users/view', $data);
+		// $data['user'] = $user;
+
+		// $presenter = Presenter_Template::forge('users/view');
+		// $presenter->set_template($this->template);
+		$presenter = $this->forge('users/view');
+		$presenter->set('user', $user);
+		$presenter->view();
+
+		// $this->template->title = "User - view";
+		// $this->template->content = View::forge('users/view', $data);
 
 		// $viewName = 'users/view';
 		// $view = View_Twig::forge($viewName);

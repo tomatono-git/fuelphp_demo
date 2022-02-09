@@ -2,7 +2,7 @@
 
 use Fuel\Core\View;
 
-class Controller_Home extends Controller_Authenticated
+class Controller_Home extends Controller_Template_Base
 {
 
 	public function action_index()

@@ -12,7 +12,7 @@ use Auth\Auth;
  * @package  app
  * @extends  Controller
  */
-class Controller_Auth extends Controller_Authenticated
+class Controller_Auth extends Controller_Template_Base
 {
     // public function before()
     // {
