@@ -13,6 +13,9 @@
 	<strong>Due date:</strong>
 	<?php echo $todo->due_date; ?></p>
 <p>
+	<strong>Due time:</strong>
+	<?php echo $todo->due_time; ?></p>
+<p>
 	<strong>Created user:</strong>
 	<?php echo $todo->created_user; ?></p>
 <p>

@@ -39,6 +39,7 @@ class Controller_Todos extends Controller_Template_Base
 					'comment' => Input::post('comment'),
 					'state' => Input::post('state'),
 					'due_date' => Input::post('due_date'),
+					'due_time' => Input::post('due_time'),
 					'created_user' => $user_id,
 					'updated_user' => $user_id,
 				));
@@ -84,6 +85,7 @@ class Controller_Todos extends Controller_Template_Base
 			$todo->comment = Input::post('comment');
 			$todo->state = Input::post('state');
 			$todo->due_date = Input::post('due_date');
+			$todo->due_time = Input::post('due_time');
 			$todo->updated_user = $this->get_login_user_id();
 
 			if ($todo->save())
@@ -107,8 +109,8 @@ class Controller_Todos extends Controller_Template_Base
 				$todo->comment = $val->validated('comment');
 				$todo->state = $val->validated('state');
 				$todo->due_date = $val->validated('due_date');
-				$todo->created_user = $val->validated('created_user');
-				$todo->updated_user = $val->validated('updated_user');
+				$todo->due_time = $val->validated('due_time');
+				$todo->updated_user = $this->get_login_user_id();
 
 				Session::set_flash('error', $val->error());
 			}

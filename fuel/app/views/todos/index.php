@@ -8,6 +8,7 @@
 			<th>Comment</th>
 			<th>State</th>
 			<th>Due date</th>
+			<th>Due time</th>
 			<th>Created user</th>
 			<th>Updated user</th>
 			<th>&nbsp;</th>
@@ -20,6 +21,7 @@
 			<td><?php echo $item->comment; ?></td>
 			<td><?php echo $item->state; ?></td>
 			<td><?php echo $item->due_date; ?></td>
+			<td><?php echo $item->due_time; ?></td>
 			<td><?php echo $item->created_user; ?></td>
 			<td><?php echo $item->updated_user; ?></td>
 			<td>

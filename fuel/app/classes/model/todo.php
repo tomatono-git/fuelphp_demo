@@ -9,6 +9,7 @@ class Model_Todo extends Model
 		'comment',
 		'state',
 		'due_date',
+		'due_time',
 		'created_user',
 		'updated_user',
 		'created_at',
@@ -33,6 +34,7 @@ class Model_Todo extends Model
 		$val->add_field('comment', 'Comment', 'required');
 		$val->add_field('state', 'State', 'required|valid_string[numeric]');
 		$val->add('due_date', 'Due Date')->add_rule('valid_date', 'Y-m-d');
+		$val->add_field('due_time', 'Due Time', 'required');
 
 		return $val;
 	}

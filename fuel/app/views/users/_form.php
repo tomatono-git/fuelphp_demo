@@ -1,3 +1,7 @@
+<?php use Fuel\Core\Form; ?>
+<?php use Fuel\Core\Input; ?>
+<?php use Fuel\Core\Asset; ?>
+
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
 
 	<fieldset>
