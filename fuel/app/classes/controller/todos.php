@@ -37,6 +37,7 @@ class Controller_Todos extends Controller_Template
 					'title' => Input::post('title'),
 					'comment' => Input::post('comment'),
 					'state' => Input::post('state'),
+					'due_date' => Input::post('due_date'),
 					'created_user' => Input::post('created_user'),
 					'updated_user' => Input::post('updated_user'),
 				));
@@ -81,6 +82,7 @@ class Controller_Todos extends Controller_Template
 			$todo->title = Input::post('title');
 			$todo->comment = Input::post('comment');
 			$todo->state = Input::post('state');
+			$todo->due_date = Input::post('due_date');
 			$todo->created_user = Input::post('created_user');
 			$todo->updated_user = Input::post('updated_user');
 
@@ -104,6 +106,7 @@ class Controller_Todos extends Controller_Template
 				$todo->title = $val->validated('title');
 				$todo->comment = $val->validated('comment');
 				$todo->state = $val->validated('state');
+				$todo->due_date = $val->validated('due_date');
 				$todo->created_user = $val->validated('created_user');
 				$todo->updated_user = $val->validated('updated_user');
 

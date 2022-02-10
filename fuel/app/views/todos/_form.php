@@ -20,6 +20,12 @@
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('Due date', 'due_date', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('due_date', Input::post('due_date', isset($todo) ? $todo->due_date : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Due date')); ?>
+
+		</div>
+		<div class="form-group">
 			<?php echo Form::label('Created user', 'created_user', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('created_user', Input::post('created_user', isset($todo) ? $todo->created_user : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Created user')); ?>

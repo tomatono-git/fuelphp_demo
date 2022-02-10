@@ -10,6 +10,9 @@
 	<strong>State:</strong>
 	<?php echo $todo->state; ?></p>
 <p>
+	<strong>Due date:</strong>
+	<?php echo $todo->due_date; ?></p>
+<p>
 	<strong>Created user:</strong>
 	<?php echo $todo->created_user; ?></p>
 <p>
