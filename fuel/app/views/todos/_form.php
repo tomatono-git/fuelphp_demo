@@ -16,9 +16,9 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<?php echo Form::label('State', 'state', array('class'=>'col-form-label col-md-2')); ?>
-			<div class="col-md-10">
-				<?php echo Form::input('state', Input::post('state', isset($todo) ? $todo->state : ''), array('class' => 'form-control', 'placeholder'=>'State')); ?>
+			<?php echo Form::label('完了', 'state', array('class'=>'col-form-label col-md-2')); ?>
+			<div class="col-md-1" style="padding-left:0;">
+				<?php echo Form::checkbox('state', '1', Input::post('state', isset($todo) ? $todo->state : ''), array('class' => 'form-control', 'placeholder'=>'State')); ?>
 			</div>
 		</div>
 		<div class="form-group row">
