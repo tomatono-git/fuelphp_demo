@@ -1,3 +1,6 @@
+<?php use Fuel\Core\Form; ?>
+<?php use Fuel\Core\Input; ?>
+
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
 
 	<fieldset>
@@ -22,23 +25,12 @@
 		<div class="form-group">
 			<?php echo Form::label('Due date', 'due_date', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('due_date', Input::post('due_date', isset($todo) ? $todo->due_date : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Due date')); ?>
-
-		</div>
-		<div class="form-group">
-			<?php echo Form::label('Created user', 'created_user', array('class'=>'control-label')); ?>
-
-				<?php echo Form::input('created_user', Input::post('created_user', isset($todo) ? $todo->created_user : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Created user')); ?>
-
-		</div>
-		<div class="form-group">
-			<?php echo Form::label('Updated user', 'updated_user', array('class'=>'control-label')); ?>
-
-				<?php echo Form::input('updated_user', Input::post('updated_user', isset($todo) ? $todo->updated_user : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Updated user')); ?>
+				<?php echo Form::input('due_date', Input::post('due_date', isset($todo) ? $todo->due_date : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Due date', 'type' => 'date')); ?>
 
 		</div>
 		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
-			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>		</div>
+			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>
+		</div>
 	</fieldset>
 <?php echo Form::close(); ?>

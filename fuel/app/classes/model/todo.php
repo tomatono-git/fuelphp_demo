@@ -32,9 +32,7 @@ class Model_Todo extends Model
 		$val->add_field('title', 'Title', 'required|max_length[200]');
 		$val->add_field('comment', 'Comment', 'required');
 		$val->add_field('state', 'State', 'required|valid_string[numeric]');
-		$val->add('due_date', 'Due Date')->add_rule('valid_date', 'Y/m/d');
-		$val->add_field('created_user', 'Created User', 'required|valid_string[numeric]');
-		$val->add_field('updated_user', 'Updated User', 'required|valid_string[numeric]');
+		$val->add('due_date', 'Due Date')->add_rule('valid_date', 'Y-m-d');
 
 		return $val;
 	}

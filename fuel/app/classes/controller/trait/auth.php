@@ -26,4 +26,10 @@ trait Controller_Trait_Auth
         return $response;        
     }
 
+    protected function get_login_user_id()
+    {
+        $user = Auth::get_user_id();
+        $user_id = $user[1];
+        return $user_id;
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-class Controller_Todos extends Controller_Template
+class Controller_Todos extends Controller_Template_Base
 {
 
 	public function action_index()
@@ -33,13 +33,14 @@ class Controller_Todos extends Controller_Template
 
 			if ($val->run())
 			{
+				$user_id = $this->get_login_user_id();
 				$todo = Model_Todo::forge(array(
 					'title' => Input::post('title'),
 					'comment' => Input::post('comment'),
 					'state' => Input::post('state'),
 					'due_date' => Input::post('due_date'),
-					'created_user' => Input::post('created_user'),
-					'updated_user' => Input::post('updated_user'),
+					'created_user' => $user_id,
+					'updated_user' => $user_id,
 				));
 
 				if ($todo and $todo->save())
@@ -83,8 +84,7 @@ class Controller_Todos extends Controller_Template
 			$todo->comment = Input::post('comment');
 			$todo->state = Input::post('state');
 			$todo->due_date = Input::post('due_date');
-			$todo->created_user = Input::post('created_user');
-			$todo->updated_user = Input::post('updated_user');
+			$todo->updated_user = $this->get_login_user_id();
 
 			if ($todo->save())
 			{
