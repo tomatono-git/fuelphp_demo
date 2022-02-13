@@ -1,4 +1,11 @@
 <?php
+
+use Fuel\Core\View;
+// use Fuel\Core\Format;
+use Fuel\Core\Response;
+use Fuel\Core\Session;
+use Fuel\Core\Input;
+
 class Controller_Todos extends Controller_Template_Base
 {
 
@@ -8,6 +15,22 @@ class Controller_Todos extends Controller_Template_Base
 		$this->template->title = "Todos";
 		$this->template->content = View::forge('todos/index', $data);
 
+	}
+
+	public function action_download()
+	{
+		$todos = Model_Todo::find('all');
+		$json = Format::forge($todos)->to_json();
+		$csv = Format::forge($json, 'json')->to_csv();
+
+		$this->template = null;
+		$this->response = new Response();
+		$this->response->set_header('Content-Type', 'application/csv');
+		$this->response->set_header('Content-Disposition', 'attachment; filename="download.csv"');
+		$this->response->send(true);
+		echo $csv;
+
+		return;		
 	}
 
 	public function action_view($id = null)

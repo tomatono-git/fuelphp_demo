@@ -16,6 +16,7 @@ require COREPATH.'bootstrap.php';
 // Add framework overload classes here
 \Autoloader::add_classes(array(
 	// Example: 'View' => APPPATH.'classes/myview.php',
+    'Format' => APPPATH . 'classes/format.php',
 ));
 
 // Register the autoloader
