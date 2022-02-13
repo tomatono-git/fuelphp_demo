@@ -4,9 +4,8 @@ use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Fuel\Core\View;
 use Fuel\Core\Input;
-use Fuel\Core\Presenter;
 
-class Controller_Users extends Controller_Template_Base
+class Controller_Users extends Controller_Template
 {
 
 	public function action_index()

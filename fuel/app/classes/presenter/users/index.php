@@ -1,6 +1,6 @@
 <?php
 
-class Presenter_Users_index extends Presenter_Template
+class Presenter_Users_index extends Presenter
 {
 	public function view()
 	{

@@ -1,7 +1,7 @@
 <?php
 
 use Fuel\Core\View;
-abstract class Presenter_Template extends Fuel\Core\Presenter
+abstract class Presenter extends Fuel\Core\Presenter
 {
     /**
 	 * @var Fuel\Core\View テンプレートのView

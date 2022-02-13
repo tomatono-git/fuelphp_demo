@@ -1,6 +1,6 @@
 <?php
 
-class Presenter_Auth_register extends Presenter_Template
+class Presenter_Auth_register extends Presenter
 {
 	public function view()
 	{

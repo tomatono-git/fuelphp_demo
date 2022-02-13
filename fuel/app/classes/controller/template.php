@@ -2,7 +2,7 @@
 
 use Fuel\Core\View;
 
-abstract class Controller_Template_Base extends Fuel\Core\Controller
+abstract class Controller_Template extends Fuel\Core\Controller
 {
 	// /**
 	// * @var string page template
@@ -52,11 +52,11 @@ abstract class Controller_Template_Base extends Fuel\Core\Controller
 	 * @param   string  $method       Method to execute
 	 * @param   bool    $auto_filter  Auto filter the view data
 	 * @param   string  $view         View to associate with this presenter
-	 * @return  Fuel\Core\Presenter
+	 * @return  Presenter
 	 */
 	public function forge($presenter, $method = 'view', $auto_filter = null, $view = null)
     {
-		$presenter = Presenter_Template::forge($presenter, $method, $auto_filter, $view);
+		$presenter = Presenter::forge($presenter, $method, $auto_filter, $view);
 		$presenter->set_template($this->template);
         return $presenter;
     }

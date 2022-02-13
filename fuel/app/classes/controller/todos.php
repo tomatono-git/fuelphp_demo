@@ -6,7 +6,7 @@ use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Fuel\Core\Input;
 
-class Controller_Todos extends Controller_Template_Base
+class Controller_Todos extends Controller_Template
 {
 
 	public function action_index()

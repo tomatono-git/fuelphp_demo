@@ -2,7 +2,7 @@
 
 use Fuel\Core\Input;
 
-class Presenter_Auth_login extends Presenter_Template
+class Presenter_Auth_login extends Presenter
 {
 	public function view()
 	{

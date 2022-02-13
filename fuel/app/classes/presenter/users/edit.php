@@ -1,6 +1,6 @@
 <?php
 
-class Presenter_Users_edit extends Presenter_Template
+class Presenter_Users_edit extends Presenter
 {
 	public function view()
 	{
