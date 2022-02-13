@@ -23,7 +23,7 @@ return array(
     'default' => array(
         'type'           => 'pdo',
         'connection'     => array(
-            'dsn'            => 'pgsql:host=fuel_db;dbname=app_dev;port=5432',
+            'dsn'            => 'pgsql:host=db;dbname=app_dev;port=5432',
             // 'dsn'            => 'pgsql:host=localhost;dbname=app_dev;port:15432',
             'username'       => 'app_dev',
             'password'       => 'pass',
