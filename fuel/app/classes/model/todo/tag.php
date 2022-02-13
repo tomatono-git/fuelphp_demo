@@ -1,15 +1,11 @@
 <?php
 use Orm\Model;
 
-class Model_Todo extends Model
+class Model_Todo_Tag extends Model
 {
 	protected static $_properties = array(
 		'id',
-		'title',
-		'comment',
-		'state',
-		'due_date',
-		'due_time',
+		'tag',
 		'created_user',
 		'updated_user',
 		'created_at',
@@ -30,11 +26,9 @@ class Model_Todo extends Model
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('title', 'Title', 'required|max_length[200]');
-		$val->add_field('comment', 'Comment', 'required');
-		$val->add_field('state', 'State', 'valid_string[numeric]|max_length[1]');
-		$val->add('due_date', 'Due Date')->add_rule('valid_date', 'Y-m-d');
-		$val->add_field('due_time', 'Due Time', 'required');
+		$val->add_field('tag', 'Tag', 'required|max_length[200]');
+		$val->add_field('created_user', 'Created User', 'required|valid_string[numeric]');
+		$val->add_field('updated_user', 'Updated User', 'required|valid_string[numeric]');
 
 		return $val;
 	}

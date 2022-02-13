@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS public.todos
     comment text NULL,
     due_date date NULL,
     due_time time NULL,
-    state int NOT NULL DEFAULT 0,
+    state int NULL DEFAULT 0,
     created_at timestamp(6) without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_user integer NOT NULL,
     updated_at timestamp(6) without time zone DEFAULT CURRENT_TIMESTAMP,
