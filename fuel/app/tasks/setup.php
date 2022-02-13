@@ -48,7 +48,9 @@ class Setup
     public static function migrate()
     {
         $command = 'php oil refine migrate';
+        print "migratin の 開始\n";
         return self::exec($command);
+        print "migratin の 終了\n";
     }
 
     /**
