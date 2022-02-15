@@ -1,0 +1,28 @@
+{
+    "name": "Xdebug",
+    "dockerComposeFile": [
+        "../../../../docker-compose.yml",
+    ],
+    "service": "php",
+    "workspaceFolder": "/var/www/html",
+    // "forwardPorts": [
+    //     9003
+    // ],
+    "extensions": [
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "xdebug.php-debug",
+        "zobo.php-intellisense",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "esbenp.prettier-vscode",
+        "mechatroner.rainbow-csv",
+    ],
+    "settings": {
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+    },
+}
