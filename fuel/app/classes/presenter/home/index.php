@@ -10,7 +10,7 @@ class Presenter_Home_index extends Presenter
 
         $this->set_title('Home - Index');
         $this->set([
-            'subnav', ['index'=> 'active'],
+            'subnav' => ['index'=> 'active'],
         ]);
     }
 }
