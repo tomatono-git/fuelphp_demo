@@ -1,0 +1,9 @@
+<h2>Editing <span class='muted'>User</span></h2>
+<br>
+
+{{ include('_form.twig') }}
+
+<p>
+    {{ html_anchor('users/view/'~user.id, 'View', { 'class': 'btn btn-primary' } ) }}
+    {{ html_anchor('users', 'Back', { 'class': 'btn btn-primary' } ) }}
+</p>

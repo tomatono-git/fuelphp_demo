@@ -1,0 +1,10 @@
+<?php use Fuel\Core\Html; ?>
+
+<h2>New <span class='muted'>User</span></h2>
+<br>
+
+{{ include('_form.twig') }}
+
+<p>
+    {{ html_anchor('users', 'Back', { 'class': 'btn btn-primary' } ) }}
+</p>

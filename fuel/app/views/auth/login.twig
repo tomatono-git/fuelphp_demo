@@ -1,0 +1,18 @@
+{{ form_open({'class': 'form-horizontal'}) }}
+    <fieldset>
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            {{ form_input( 'email', input_post('email', user.email), { 'class': 'col-md-4 form-control', 'placeholder': 'Email' } ) }}
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label">Password</label>
+            {{ form_input( 'password', input_post('password', user.password), { 'class': 'col-md-4 form-control', 'placeholder': 'Password' } ) }}
+        </div>
+
+        <div class="form-group">
+            <label class='control-label'>&nbsp;</label>
+            {{ form_submit('submit', 'ログイン', { 'class': 'btn btn-primary' } ) }}
+            {{ html_anchor('auth', '戻る', { 'class': 'btn btn-primary' } ) }}
+        </div>
+    </fieldset>
+{{form_close()}}

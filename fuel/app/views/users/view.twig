@@ -1,0 +1,33 @@
+<h2>Viewing <span class='muted'>#{{ user.id }}</span></h2>
+
+<p>
+    <strong>Username:</strong>
+    {{ user.username }}
+</p>
+<p>
+    <strong>Password:</strong>
+    {{ user.password }}
+</p>
+<p>
+    <strong>Group:</strong>
+    {{ user.group }}
+</p>
+<p>
+    <strong>Email:</strong>
+    {{ user.email }}
+</p>
+<p>
+    <strong>Last login:</strong>
+    {{ user.last_login }}
+</p>
+<p>
+    <strong>Login hash:</strong>
+    {{ user.login_hash }}
+</p>
+<p>
+    <strong>Profile fields:</strong>
+    {{ user.profile_fields }}
+</p>
+
+{{ html_anchor('users/edit/'~user.id, 'Edit', { 'class': 'btn btn-primary' } ) }}
+{{ html_anchor('users', 'Back', { 'class': 'btn btn-primary' } ) }}

@@ -1,6 +1,7 @@
 <?php
 
 use Fuel\Core\View;
+use Parser\View_twig;
 
 /**
  * テンプレート対応の Presenter
@@ -41,6 +42,7 @@ abstract class Presenter extends Fuel\Core\Presenter
     public function set_title(string $title)
     {
         $this->template->title = $title;
+        $this->set('views_dir', APPPATH.'views/');
     }
 
     /**
@@ -54,18 +56,18 @@ abstract class Presenter extends Fuel\Core\Presenter
         $this->template->content = $this->get_view();
     }
 
-    /**
-     * $this->get_view()->set(・・・) のショートカット
-     *
-	 * @param  string|array $key     変数名または変数名の配列
-	 * @param  mixed        $value   値
-	 * @param  bool         $filter  データをフィルタリングするかどうか
-     * @return View
-     */
-    public function view_set($key, $value = null, $filter = null)
-    {
-        return $this->get_view()->set($key, $value, $filter);
-    }
+    // /**
+    //  * $this->get_view()->set(・・・) のショートカット
+    //  *
+	//  * @param  string|array $key     変数名または変数名の配列
+	//  * @param  mixed        $value   値
+	//  * @param  bool         $filter  データをフィルタリングするかどうか
+    //  * @return View
+    //  */
+    // public function view_set($key, $value = null, $filter = null)
+    // {
+    //     return $this->get_view()->set($key, $value, $filter);
+    // }
 
     /**
      * Factory for fetching the Presenter
@@ -78,6 +80,7 @@ abstract class Presenter extends Fuel\Core\Presenter
      */
     public static function forge($presenter, $method = 'view', $auto_filter = null, $view = null)
     {
-        return parent::forge($presenter, $method, $auto_filter, $view);
+        $twig = View_twig::forge($view ?? $presenter);
+        return parent::forge($presenter, $method, $auto_filter, $twig);
     }
 }

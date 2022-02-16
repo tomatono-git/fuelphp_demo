@@ -1,0 +1,48 @@
+<h2>Listing <span class='muted'>Users</span></h2>
+<br>
+
+{% if users|length %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Group</th>
+            <th>Email</th>
+            <th>Last login</th>
+            <th>Login hash</th>
+            <th>Profile fields</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.group }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.last_login }}</td>
+            <td>{{ user.login_hash }}</td>
+            <td>{{ user.profile_fields }}</td>
+            <td>
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        {{ html_anchor('users/view/'~user.id, '<i class="icon-eye-open"></i> View', { 'class': 'btn btn-default btn-sm' } ) }}
+                        {{ html_anchor('users/edit/'~user.id, '<i class="icon-eye-open"></i> Edit', { 'class': 'btn btn-default btn-sm' } ) }}
+                        {{ html_anchor('users/delete/'~user.id, '<i class="icon-eye-open"></i> Delete', { 'class': 'btn btn-danger btn-sm', 'onclick': 'return confirm("Are you sure?")' } ) }}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p>No Users.</p>
+{% endif %}
+
+<p>
+    {{ html_anchor('users/create', 'Add new User', { 'class': 'btn btn-success' } ) }}
+</p>
