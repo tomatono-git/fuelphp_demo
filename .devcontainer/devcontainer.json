@@ -4,6 +4,8 @@
         "../../../../docker-compose.yml",
     ],
     "service": "php",
+    // "remoteUser": "dev",
+    // "workspaceFolder": "/home/dev",
     "workspaceFolder": "/var/www/html",
     // "forwardPorts": [
     //     9003

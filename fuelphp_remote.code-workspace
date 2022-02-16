@@ -5,11 +5,15 @@
 		},
 	],
 	"settings": {
+        "terminal.integrated.defaultProfile.windows": "Ubuntu-20.04 (WSL)",
 		// "php.validate.executablePath": "",
-		// "markdown.preview.breaks": true,
-		// "[markdown]": {
-		// 	"editor.insertSpaces": true,
-		// 	"editor.tabSize": 2,
-		// }
+		"markdown.preview.breaks": true,
+		"[markdown]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 4,
+			// "editor.tabSize": 2,
+		},
+		"search.useIgnoreFiles": false,
+		"editor.renderWhitespace": "all",
 	}
 }
