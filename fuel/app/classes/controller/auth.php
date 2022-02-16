@@ -20,27 +20,33 @@ class Controller_Auth extends Controller_Template
 	 * @access  public
 	 * @return  Response
 	 */
-	public function action_login()
+	public function get_login()
 	{
-        if (Input::post())
+        $presenter = $this->forge('auth/login');
+        $presenter->view();
+    }
+
+    /**
+	 * The basic welcome message
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function post_login()
+	{
+        if (Auth::login(Input::post('email'), Input::post('password')))
         {
-            if (Auth::login(Input::post('email'), Input::post('password')))
-            {
-                Response::redirect('home/index');
-            }
-            else
-            {
-                $presenter = $this->forge('auth/login');
-                $presenter->view();
-                Session::set_flash('error', 'Wrong username/password combo. Try again');
-            }
-        } else {
+            Response::redirect('home/index');
+        }
+        else
+        {
             $presenter = $this->forge('auth/login');
             $presenter->view();
+            Session::set_flash('error', 'Wrong username/password combo. Try again');
         }
     }
 
-    public function action_logout()
+    public function get_logout()
     {
         if ( Auth::logout() )
         {

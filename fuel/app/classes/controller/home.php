@@ -1,15 +1,13 @@
 <?php
 
-use Fuel\Core\View;
-
 class Controller_Home extends Controller_Template
 {
 
-	public function action_index()
-	{
-		$data["subnav"] = array('index'=> 'active' );
-		$this->template->title = 'Home &raquo; Index';
-		$this->template->content = View::forge('home/index', $data);
-	}
-
+    public function get_index()
+    {
+        $presenter = $this->forge('home/index');
+        $presenter->view();
+        // return $this->forge('home/index');
+    }
 }
+
