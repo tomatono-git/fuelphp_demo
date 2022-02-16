@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Html; ?>
+
 <h2>New <span class='muted'>Todo_tag</span></h2>
 <br>
 

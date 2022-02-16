@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Html; ?>
+
 <h2>Viewing <span class='muted'>#<?php echo $todo_tag->id; ?></span></h2>
 
 <p>

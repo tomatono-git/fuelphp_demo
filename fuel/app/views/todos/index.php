@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Html; ?>
+
 <h2>Listing <span class='muted'>Todos</span></h2>
 <br>
 <?php if ($todos): ?>

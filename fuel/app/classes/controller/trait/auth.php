@@ -5,8 +5,16 @@ use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Auth\Auth;
 
+/**
+ * 認証コントローラー用トレイト
+ */
 trait Controller_Trait_Auth
 {
+    /**
+     * 認証チェック
+     *
+     * @return mixed|null
+     */
     protected function check_auth()
     {
         $active = Request::active();

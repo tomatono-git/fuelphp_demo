@@ -1,3 +1,5 @@
+<?php use Fuel\Core\Html; ?>
+
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
 
 	<fieldset>

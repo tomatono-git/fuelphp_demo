@@ -1,4 +1,10 @@
 <?php
+
+use Fuel\Core\View;
+use Fuel\Core\Response;
+use Fuel\Core\Session;
+use Fuel\Core\Input;
+
 class Controller_Todo_Tags extends Controller_Template
 {
 
