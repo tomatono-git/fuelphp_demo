@@ -7,7 +7,6 @@ class Controller_Home extends Controller_Template
     {
         $presenter = $this->forge('home/index');
         $presenter->view();
-        // return $this->forge('home/index');
     }
 }
 
